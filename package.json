@@ -1,0 +1,33 @@
+{
+  "name": "https-from-http",
+  "version": "1.0.0",
+  "description": "Simple client for making HTTP/HTTPS requests",
+  "main": "index.js",
+  "scripts": {
+    "test": "node test.js",
+    "prepublish": "npm run test",
+    "publish": "npm publish --access public",
+    "postpublish": "git push --follow-tags"
+  },
+  "keywords": [
+    "http",
+    "https",
+    "proxy",
+    "convert",
+    "devarif"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/arifpro/https-from-http.git"
+  },
+  "author": "Md Arif Hossain <https://devarif.me> (hi@devarif.me)",
+  "license": "ISC",
+  "type": "commonjs",
+  "bugs": {
+    "url": "https://github.com/arifpro/https-from-http/issues"
+  },
+  "homepage": "https://github.com/arifpro/https-from-http#readme",
+  "dependencies": {
+    "axios": "^1.7.9"
+  }
+}
