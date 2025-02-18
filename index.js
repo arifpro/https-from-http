@@ -73,6 +73,8 @@ const callapi = {
   post: (url, data, config) =>
     request(url, { ...config, method: "POST", data }),
   put: (url, data, config) => request(url, { ...config, method: "PUT", data }),
+  patch: (url, data, config) =>
+    request(url, { ...config, method: "PATCH", data }),
   delete: (url, config) => request(url, { ...config, method: "DELETE" }),
 };
 

@@ -119,43 +119,6 @@ customRequest();
 | `.get(url, config?)`  | Perform a GET request                |
 | `.post(url, data, config?)`  | Perform a POST request            |
 | `.put(url, data, config?)`   | Perform a PUT request             |
+| `.patch(url, data, config?)` | Perform a PATCH request           |
 | `.delete(url, config?)` | Perform a DELETE request           |
 | `.request(config)`  | Fully customizable request like axios |
-
----
-
-## **🛠 How it Works?**
-
-1. You send an **HTTP request** (`http://example.com`).  
-2. The request is forwarded to the proxy:  
-   **`https://http-to-https.vercel.app/proxy?url=http://example.com`**  
-3. The proxy converts it to **HTTPS (`https://example.com`)** and returns the response.  
-
-No need for local `axios` or extra dependencies!
-
----
-
-## **📜 License**
-
-MIT License © 2024 **Your Name**
-
----
-
-## **🚀 Ready to Publish?**
-
-1. **Test your package**  
-
-   ```sh
-   node test.js
-   ```
-
-2. **Publish to NPM**  
-
-   ```sh
-   npm publish --access public
-   ```
-
----
-
-This **README** makes your package **easy to use and understand**. 🚀  
-Let me know if you need modifications before publishing! 🚀
