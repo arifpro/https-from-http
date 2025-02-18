@@ -69,13 +69,15 @@ async function request(url, config = {}) {
  */
 const callapi = {
   request,
+  head: (url, config) => request(url, { ...config, method: "HEAD" }),
+  options: (url, config) => request(url, { ...config, method: "OPTIONS" }),
   get: (url, config) => request(url, { ...config, method: "GET" }),
   post: (url, data, config) =>
     request(url, { ...config, method: "POST", data }),
   put: (url, data, config) => request(url, { ...config, method: "PUT", data }),
   patch: (url, data, config) =>
     request(url, { ...config, method: "PATCH", data }),
-  delete: (url, config) => request(url, { ...config, method: "DELETE" }),
+  remove: (url, config) => request(url, { ...config, method: "DELETE" }),
 };
 
 module.exports = callapi;

@@ -1,8 +1,9 @@
 {
   "name": "https-from-http",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "description": "Simple client for making HTTP/HTTPS requests",
   "main": "index.js",
+  "types": "index.d.ts",
   "scripts": {
     "test": "node test.js",
     "prepublish": "npm run test",

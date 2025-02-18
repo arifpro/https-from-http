@@ -7,7 +7,7 @@ Works like `axios` but without requiring `axios` locally!
 ## **✨ Features**
 
 ✅ Convert **HTTP** requests to **HTTPS**  
-✅ Works like **axios** (`get`, `post`, `put`, `delete`, etc.)  
+✅ Works like **axios** (`get`, `post`, `put`, `remove`, etc.)  
 ✅ No need to install **axios**  
 ✅ Lightweight & zero dependencies  
 
@@ -120,5 +120,5 @@ customRequest();
 | `.post(url, data, config?)`  | Perform a POST request            |
 | `.put(url, data, config?)`   | Perform a PUT request             |
 | `.patch(url, data, config?)` | Perform a PATCH request           |
-| `.delete(url, config?)` | Perform a DELETE request           |
+| `.remove(url, config?)` | Perform a DELETE request           |
 | `.request(config)`  | Fully customizable request like axios |
