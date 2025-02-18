@@ -1,39 +1,41 @@
-# https-from-http
 
-Easily convert **HTTP** requests to **HTTPS** using this lightweight proxy wrapper.
+# **https-from-http**
 
-## 🚀 Features
+🚀 **Convert HTTP requests to HTTPS automatically using a lightweight proxy.**  
+Works like `axios` but without requiring `axios` locally!  
 
-✅ **Convert HTTP to HTTPS** automatically  
-✅ **Simple API** - Just provide the HTTP URL  
-✅ **Supports all HTTP methods** (`GET`, `POST`, `PUT`, etc.)  
-✅ **Pass custom headers and request body**  
+## **✨ Features**
+
+✅ Convert **HTTP** requests to **HTTPS**  
+✅ Works like **axios** (`get`, `post`, `put`, `delete`, etc.)  
+✅ No need to install **axios**  
+✅ Lightweight & zero dependencies  
 
 ---
 
-## 📦 Installation
+## **📦 Installation**
 
 ```sh
 npm install https-from-http
-# or
+# OR
 yarn add https-from-http
-# or
+# OR
 pnpm add https-from-http
 ```
 
 ---
 
-## 🛠 Usage
+## **🚀 Usage**
 
-### 🔹 **Basic Usage (GET Request)**
+### **1️⃣ GET Request**
 
 ```javascript
-const https = require("https-from-http");
+const callapi = require("https-from-http");
 
 async function fetchData() {
   try {
-    const data = await https("http://devarif.me/api");
-    console.log("Response:", data);
+    const response = await callapi.get("http://example.com");
+    console.log("Response:", response);
   } catch (error) {
     console.error("Error:", error.message);
   }
@@ -44,21 +46,16 @@ fetchData();
 
 ---
 
-### 🔹 **Using Other HTTP Methods (POST, PUT, DELETE, etc.)**
-
-You can send **POST requests** with a JSON body like this:
+### **2️⃣ POST Request with JSON Body**
 
 ```javascript
-const https = require("https-from-http");
+const callapi = require("https-from-http");
 
 async function sendData() {
   try {
-    const response = await https("http://devarif.me/v1/api", {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      data: { key: "value" }
+    const response = await callapi.post("http://example.com/api", {
+      key: "value",
     });
-
     console.log("Response:", response);
   } catch (error) {
     console.error("Error:", error.message);
@@ -70,18 +67,16 @@ sendData();
 
 ---
 
-### 🔹 **Pass Custom Headers**
+### **3️⃣ GET Request with Custom Headers**
 
 ```javascript
-const https = require("https-from-http");
+const callapi = require("https-from-http");
 
 async function fetchWithHeaders() {
   try {
-    const response = await https("http://devarif.me/v1/api", {
-      method: "GET",
-      headers: { Authorization: "Bearer your_token_here" }
+    const response = await callapi.get("http://example.com/api", {
+      headers: { "User-Agent": "https-from-http" },
     });
-
     console.log("Response:", response);
   } catch (error) {
     console.error("Error:", error.message);
@@ -93,18 +88,74 @@ fetchWithHeaders();
 
 ---
 
-## 🔗 How It Works
+### **4️⃣ Using `request()` for Custom Requests**
 
-This package sends your HTTP request to the [deployed proxy server](https://http-to-https.vercel.app/proxy), which then forwards the request over HTTPS.
+```javascript
+const callapi = require("https-from-http");
 
-| Input URL (HTTP)  | Output URL (HTTPS) |
-|-------------------|------------------|
-| `http://devarif.me/api` | `https://devarif.me/api` |
+async function customRequest() {
+  try {
+    const response = await callapi.request({
+      url: "http://example.com/api",
+      method: "PUT",
+      headers: { "Content-Type": "application/json" },
+      data: { update: "test" },
+    });
+    console.log("Response:", response);
+  } catch (error) {
+    console.error("Error:", error.message);
+  }
+}
+
+customRequest();
+```
 
 ---
 
-## ⚠️ Notes
+## **🛠 Methods Available**
 
-- **Only HTTP URLs are allowed**. If you pass an HTTPS URL, the request will fail.
-- Make sure the **destination server supports HTTPS**.
-- The proxy does **not** modify request data—it simply forwards it over HTTPS.
+| Method        | Description                                      |
+|--------------|------------------------------------------------|
+| `.get(url, config?)`  | Perform a GET request                |
+| `.post(url, data, config?)`  | Perform a POST request            |
+| `.put(url, data, config?)`   | Perform a PUT request             |
+| `.delete(url, config?)` | Perform a DELETE request           |
+| `.request(config)`  | Fully customizable request like axios |
+
+---
+
+## **🛠 How it Works?**
+
+1. You send an **HTTP request** (`http://example.com`).  
+2. The request is forwarded to the proxy:  
+   **`https://http-to-https.vercel.app/proxy?url=http://example.com`**  
+3. The proxy converts it to **HTTPS (`https://example.com`)** and returns the response.  
+
+No need for local `axios` or extra dependencies!
+
+---
+
+## **📜 License**
+
+MIT License © 2024 **Your Name**
+
+---
+
+## **🚀 Ready to Publish?**
+
+1. **Test your package**  
+
+   ```sh
+   node test.js
+   ```
+
+2. **Publish to NPM**  
+
+   ```sh
+   npm publish --access public
+   ```
+
+---
+
+This **README** makes your package **easy to use and understand**. 🚀  
+Let me know if you need modifications before publishing! 🚀
